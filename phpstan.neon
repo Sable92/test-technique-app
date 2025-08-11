@@ -1,0 +1,26 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: max
+    paths:
+        - app/
+        - tests/
+
+    excludePaths:
+        - bootstrap/
+        - storage/
+        - vendor/
+        - node_modules/
+
+    # Paramètres de vérification stricts
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkUninitializedProperties: true
+    checkDynamicProperties: true
+    reportUnmatchedIgnoredErrors: false
+
+    # Ignorer certaines erreurs Laravel communes
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder#'
+        - '#Call to an undefined method Illuminate\\Http\\Request#'
+        - '#Method .+Request::rules\(\) should return array<string, array<int, .+> but returns array<string, .+>#'
